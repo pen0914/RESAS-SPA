@@ -1,4 +1,4 @@
-import { memo, useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 
 import { ValContext } from "../../providers/ValProvider";
 

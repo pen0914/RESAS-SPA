@@ -1,6 +1,6 @@
 import "./styles.css";
 import styled from "styled-components";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { ValProvider } from "./providers/ValProvider";
 import { AllData } from "./hooks/AllData";
