@@ -1,10 +1,9 @@
 import "./styles.css";
-
 import styled from "styled-components";
-import { CheckBox } from "./components/atoms/CheckBox";
 import { useEffect } from "react";
 
 import { AllData } from "./hooks/AllData";
+import { CheckBox } from "./components/atoms/CheckBox";
 
 export default function App() {
   const { getData, pref } = AllData();
@@ -21,7 +20,10 @@ export default function App() {
           ))}
         </div>
       </SDiv>
-      <SDiv>人口数</SDiv>
+      <SDiv>
+        <p>人口数</p>
+        <p>{}</p>
+      </SDiv>
     </>
   );
 }

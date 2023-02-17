@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
-export const CheckBox = (props) => {
+export const CheckBox = memo((props) => {
   const { prefecture } = props;
   const [val, setVal] = useState();
 
@@ -19,4 +19,4 @@ export const CheckBox = (props) => {
       {prefecture}
     </>
   );
-};
+});
