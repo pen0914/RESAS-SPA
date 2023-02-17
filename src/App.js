@@ -1,24 +1,31 @@
 import "./styles.css";
-import axios from "axios";
+
+import styled from "styled-components";
+import { CheckBox } from "./components/atoms/CheckBox";
+import { useEffect } from "react";
+
+import { AllData } from "./hooks/AllData";
 
 export default function App() {
-  const header = {
-    "X-API-KEY": "aCDP2x9uUyivsfGuaMsvHcjfdFJdnpxET3jIHmxl"
-  };
-  const endpoint = "https://opendata.resas-portal.go.jp/";
-  const prefectures = "api/v1/prefectures";
-  const getAllData = () => {
-    axios
-      .get(endpoint + prefectures, {
-        headers: header
-      })
-      .then((res) => {
-        console.log(res);
-      });
-  };
+  const { getData, pref } = AllData();
+  useEffect(() => getData(), []);
+
   return (
-    <div className="App">
-      <button onClick={getAllData}>ここを押してね</button>
-    </div>
+    <>
+      <SDiv>Title</SDiv>
+      <SDiv>
+        <p>都道府県</p>
+        <div>
+          {pref.map((pref) => (
+            <CheckBox key={pref.prefCode} prefecture={pref.prefName} />
+          ))}
+        </div>
+      </SDiv>
+      <SDiv>人口数</SDiv>
+    </>
   );
 }
+
+const SDiv = styled.div`
+  text-align: center;
+`;
