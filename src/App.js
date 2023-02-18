@@ -4,8 +4,8 @@ import React, { useEffect } from "react";
 
 import { ValProvider } from "./providers/ValProvider";
 import { AllData } from "./hooks/AllData";
-import { CheckBox } from "./components/atoms/CheckBox";
-import { Graph } from "./components/organisms/Graph";
+import { CheckBox } from "./components/molecules/CheckBox";
+import { Graph } from "./components/molecules/Graph";
 
 export default function App() {
   const { getData, pref } = AllData();
