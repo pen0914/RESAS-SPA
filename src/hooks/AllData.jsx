@@ -2,7 +2,7 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 
 export const AllData = () => {
-  const [pref, setPref] = useState([]);
+  const [prefData, setPrefData] = useState([]);
 
   const header = {
     "X-API-KEY": "aCDP2x9uUyivsfGuaMsvHcjfdFJdnpxET3jIHmxl"
@@ -14,11 +14,11 @@ export const AllData = () => {
       .get(endpoint + prefectures, {
         headers: header
       })
-      .then((res) => setPref(res.data.result));
+      .then((res) => setPrefData(res.data.result));
   }, []);
 
   return {
     getData,
-    pref
+    prefData
   };
 };

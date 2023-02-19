@@ -8,7 +8,7 @@ import { CheckBox } from "./components/molecules/CheckBox";
 import { Graph } from "./components/molecules/Graph";
 
 export default function App() {
-  const { getData, pref } = AllData();
+  const { getData, prefData } = AllData();
 
   useEffect(() => getData(), []);
 
@@ -18,8 +18,8 @@ export default function App() {
       <SDiv>
         <p>都道府県</p>
         <div>
-          {pref.map((pref) => (
-            <CheckBox key={pref.prefCode} prefecture={pref.prefName} />
+          {prefData.map((pref) => (
+            <CheckBox key={pref.prefCode} prefecture={pref} />
           ))}
         </div>
       </SDiv>

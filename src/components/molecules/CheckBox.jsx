@@ -7,32 +7,48 @@ export const CheckBox = memo((props) => {
   const { prefecture } = props;
 
   //contextでグローバルなstateを使用
-  const { val, setVal } = useContext(ValContext);
+  const { setVal } = useContext(ValContext);
   const [on, setOn] = useState(true);
 
-  //グラフに渡すstateの管理
+  const onChangeBox = (e) => {
+    //チェック時,stateに格納
+    if (on === true) {
+      setVal(e.target.value);
+      setOn(false);
+    }
+    //チェックを外す時
+    else {
+      setOn(true);
+    }
+  };
+
+  /* //Graph.jsxで使用
+ const prefCode = prefecture.prefCode;
+
   const onChangeBox = (e) => {
     //チェック時,stateに格納
     if (on === true) {
       setVal([...val, e.target.value]);
+      console.log(prefCode);
       setOn(false);
     }
     //チェックを外す時,stateから削除
     else {
-      setVal(val.filter((value) => value !== prefecture));
+      setVal(val.filter((value) => value !== `${prefCode}`));
       setOn(true);
     }
-  };
+  }; 
+ */
 
   return (
     <>
       <input
         type="checkbox"
         name="prefecture"
-        value={`${prefecture}`}
+        value={`${prefecture.prefCode}`}
         onChange={onChangeBox}
       />
-      {prefecture}
+      {prefecture.prefName}
     </>
   );
 });

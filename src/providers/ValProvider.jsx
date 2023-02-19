@@ -5,7 +5,7 @@ export const ValContext = createContext();
 export const ValProvider = (props) => {
   const { children } = props;
 
-  const [val, setVal] = useState([]);
+  const [val, setVal] = useState();
   return (
     <ValContext.Provider value={{ val, setVal }}>
       {children}
