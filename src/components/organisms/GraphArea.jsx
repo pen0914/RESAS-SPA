@@ -20,7 +20,7 @@ export const GraphArea = () => {
     (val) => {
       //チェック時,stateに格納
       if (on === false) {
-        setGraphData(...graphData, population);
+        setGraphData([...graphData, population]);
       }
       //チェックを外す時,stateから削除
       else {
@@ -28,7 +28,7 @@ export const GraphArea = () => {
       setOn(true); */
       }
     },
-    [population]
+    [val]
   );
 
   return (
