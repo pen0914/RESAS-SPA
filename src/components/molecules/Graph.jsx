@@ -3,6 +3,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 
 export const Graph = (props) => {
   const { GraphData } = props;
+  console.log(GraphData);
 
   return (
     <>
@@ -15,8 +16,9 @@ export const Graph = (props) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="year" />
         <YAxis dataKey="value" />
-
-        <Line type="monotone" dataKey="value" />
+        {/*  {GraphData.map((g) => (
+          <Line type="monotone" dataKey="g.value" />
+      ))}  */}
       </LineChart>
     </>
   );
