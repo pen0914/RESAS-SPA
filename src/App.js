@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import { ValProvider } from "./providers/ValProvider";
 import { AllData } from "./hooks/AllData";
 import { CheckBox } from "./components/molecules/CheckBox";
-import { Graph } from "./components/molecules/Graph";
+import { GraphArea } from "./components/organisms/GraphArea";
 
 export default function App() {
   const { getData, prefData } = AllData();
@@ -25,7 +25,7 @@ export default function App() {
       </SDiv>
       <SDiv>
         <p>人口数</p>
-        <Graph />
+        <GraphArea />
       </SDiv>
     </ValProvider>
   );

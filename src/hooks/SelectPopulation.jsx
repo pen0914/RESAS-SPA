@@ -1,8 +1,9 @@
+/* eslint-disabled react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useCallback, useState } from "react";
 
 export const SelectPopulation = () => {
-  const [population, setPopulation] = useState([]);
+  const [population, setPopulation] = useState([{ year: 0, value: 0 }]);
 
   const header = {
     "X-API-KEY": "aCDP2x9uUyivsfGuaMsvHcjfdFJdnpxET3jIHmxl"
@@ -16,7 +17,9 @@ export const SelectPopulation = () => {
       .get(endpoint + prefectures + query, {
         headers: header
       })
-      .then((res) => setPopulation(res.data.result.data[0].data));
+      .then((res) => {
+        setPopulation(res.data.result.data[0].data);
+      });
   }, []);
 
   return {
