@@ -11,10 +11,22 @@ export const CheckBox = memo((props) => {
   const { setVal } = useContext(ValContext);
   const { on, setOn } = useContext(OnOffContext);
 
-  const onChangeBox = (e) => {
+  /* const onChangeBox = (e) => {
     //チェック時,stateに格納
     if (on === true) {
       setVal(e.target.value);
+      setOn(false);
+    }
+    //チェックを外す時
+    else {
+      setOn(true);
+    }
+  };
+*/
+  const onClickValue = (prefecture) => {
+    if (on === true) {
+      setVal(prefecture);
+      console.log(prefecture);
       setOn(false);
     }
     //チェックを外す時
@@ -29,7 +41,8 @@ export const CheckBox = memo((props) => {
         type="checkbox"
         name="prefecture"
         value={`${prefecture.prefCode}`}
-        onChange={onChangeBox}
+        /* onChange={onChangeBox} */
+        onClick={() => onClickValue(prefecture)}
       />
       {prefecture.prefName}
     </>

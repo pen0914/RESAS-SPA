@@ -12,7 +12,8 @@ export const SelectPopulation = () => {
   const prefectures = `api/v1/population/composition/perYear`;
 
   const getPopulationData = useCallback((val) => {
-    const query = `?prefCode=${val}`;
+    const query = `?prefCode=${val.prefCode}`;
+    console.log(val.prefCode);
     axios
       .get(endpoint + prefectures + query, {
         headers: header
