@@ -3,7 +3,9 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 
 export const SelectPopulation = () => {
-  const [population, setPopulation] = useState([{ year: 0, value: 0 }]);
+  const [population, setPopulation] = useState([
+    { label: "0", data: { year: 0, value: 0 } }
+  ]);
 
   const header = {
     "X-API-KEY": "aCDP2x9uUyivsfGuaMsvHcjfdFJdnpxET3jIHmxl"
@@ -19,7 +21,7 @@ export const SelectPopulation = () => {
         headers: header
       })
       .then((res) => {
-        setPopulation(res.data.result.data[0].data);
+        setPopulation(res.data.result.data[0]);
       });
   }, []);
 

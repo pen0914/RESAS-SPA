@@ -11,7 +11,7 @@ export const GraphArea = () => {
   const { on } = useContext(OnOffContext);
   const { getPopulationData, population } = SelectPopulation();
   const [graphData, setGraphData] = useState([
-    { name: "0", year: 0, value: 0 }
+    { name: "0", label: "0", data: { year: 0, value: 0 } }
   ]);
 
   useEffect(() => {
@@ -24,7 +24,11 @@ export const GraphArea = () => {
     if (on === false) {
       setGraphData([
         ...graphData,
-        { name: name, year: population.year, value: population.value }
+        {
+          name: name,
+          label: population.label,
+          data: population.data
+        }
       ]);
     }
     //チェックを外す時,stateから削除
@@ -33,7 +37,8 @@ export const GraphArea = () => {
       setOn(true); */
     }
   }, [name]);
-  console.log(population);
+  console.log(name);
+  console.log(graphData);
 
   return (
     <>
