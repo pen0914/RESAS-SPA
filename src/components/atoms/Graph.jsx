@@ -20,9 +20,9 @@ export const Graph = memo((props) => {
         margin={{ top: 5, right: 5, left: 50, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey={data.year} type={data.year} />
-        <YAxis dataKey={data.value} />
-
+        <XAxis dataKey="year" type="year" />
+        <YAxis dataKey="value" />
+        <Tooltip />
         <Legend />
         {children}
       </LineChart>

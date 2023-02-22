@@ -1,48 +1,24 @@
-import React, { memo, useContext, useState } from "react";
+import React, { memo, useCallback } from "react";
 import { style } from "styled-components";
-import { OnOffContext } from "../../providers/OnOffProvider";
 
-import { ValContext } from "../../providers/ValProvider";
+import { CheckState } from "../../hooks/states/CheckState";
 
 export const CheckBox = memo((props) => {
   const { prefecture } = props;
+  const { CheckFunction } = CheckState();
 
-  //contextでグローバルなstateを使用
-  const { setVal } = useContext(ValContext);
-  const { on, setOn } = useContext(OnOffContext);
-
-  /* const onChangeBox = (e) => {
-    //チェック時,stateに格納
-    if (on === true) {
-      setVal(e.target.value);
-      setOn(false);
-    }
-    //チェックを外す時
-    else {
-      setOn(true);
-    }
-  };
-*/
-  const onClickValue = (prefecture) => {
-    if (on === true) {
-      setVal(prefecture);
-      console.log(prefecture);
-      setOn(false);
-    }
-    //チェックを外す時
-    else {
-      setOn(true);
-    }
-  };
-
+  const onClickValue = useCallback(
+    (prefecture) => {
+      CheckFunction(prefecture);
+    },
+    [CheckFunction]
+  );
 
   return (
     <>
       <input
         type="checkbox"
         name="prefecture"
-        value={`${prefecture.prefCode}`}
-        /* onChange={onChangeBox} */
         onClick={() => onClickValue(prefecture)}
       />
       {prefecture.prefName}

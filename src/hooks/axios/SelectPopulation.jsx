@@ -13,9 +13,9 @@ export const SelectPopulation = () => {
   const endpoint = "https://opendata.resas-portal.go.jp/";
   const prefectures = `api/v1/population/composition/perYear`;
 
-  const getPopulationData = useCallback((val) => {
-    const query = `?prefCode=${val.prefCode}`;
-    console.log(val.prefCode);
+  const getPopulationData = useCallback((code) => {
+    const query = `?prefCode=${code}`;
+    console.log(query);
     axios
       .get(endpoint + prefectures + query, {
         headers: header
