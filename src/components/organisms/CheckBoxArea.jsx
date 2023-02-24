@@ -1,6 +1,10 @@
-import { useState } from "react";
+import styled from "styled-components";
+import { memo } from "react";
+import { EachCheckBox } from "../molecules/EachCheckBox";
 
-export const CheckBoxArea = () => {
+export const CheckBoxArea = memo((props) => {
+  const { prefData, index } = props;
+
   const area = [
     "北海道",
     "東北",
@@ -12,23 +16,33 @@ export const CheckBoxArea = () => {
     "九州"
   ];
   const num = [0, 7, 14, 23, 30, 35, 39];
-  const [count, setCount] = useState(0);
-  const [boolean, setBoolean] = useState(false);
+  const component = () => {
+    if (index === 1) {
+      return (
+        <>
+          <p />
+          <SFlex>
+            <EachCheckBox prefecture={prefData} />
+          </SFlex>
+        </>
+      );
+    } else {
+      return (
+        <SFlex>
+          <EachCheckBox prefecture={prefData} />
+        </SFlex>
+      );
+    }
+  };
 
-  if (index === num[count]) {
-    setCount(count + 1);
+  return (
     <>
-      <p />
-      <div>{area[count]}</div>
-      <SFlex>
-        <CheckBoxArea key={pref.prefCode} prefecture={pref} />
-      </SFlex>
-    </>;
-  } else {
-    <SFlex>
-      <CheckBoxArea key={pref.prefCode} prefecture={pref} />
-    </SFlex>;
-  }
+      <component />
+    </>
+  );
+});
 
-  return {};
-};
+const SFlex = styled.div`
+  display: inline-flex;
+  justify-content: start;
+`;
