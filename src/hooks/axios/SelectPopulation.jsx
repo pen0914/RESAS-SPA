@@ -15,18 +15,23 @@ export const SelectPopulation = () => {
 
   const getPopulationData = useCallback((code) => {
     const query = `?prefCode=${code}`;
-    console.log(query);
+
     axios
       .get(endpoint + prefectures + query, {
         headers: header
       })
       .then((res) => {
-        setPopulation(res.data.result.data[0]);
+        if (res) {
+          setPopulation(res.data.result.data[0]);
+        } else {
+          alert("データ取得に失敗しました");
+        }
       });
   }, []);
 
   return {
     getPopulationData,
-    population
+    population,
+    setPopulation
   };
 };
