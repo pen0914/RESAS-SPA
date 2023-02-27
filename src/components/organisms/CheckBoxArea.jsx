@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { EachCheckBox } from "../molecules/EachCheckBox";
 
 export const CheckBoxArea = memo((props) => {
