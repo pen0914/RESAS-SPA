@@ -18,30 +18,51 @@ export default function App() {
       <HeaderArea />
 
       <SDiv>
-        <div>
-          <p>都道府県</p>
+        <SDivLeft>
+          <SMain>都道府県</SMain>
           {prefData.map((p, index) => {
             return <CheckBoxArea key={p.prefCode} prefData={p} index={index} />;
           })}
-        </div>
+        </SDivLeft>
       </SDiv>
       <SDiv>
-        <div>
-          <div>人口数</div>
+        <SDivRight>
+          <SMain>グラフ</SMain>
           <GraphArea />
-        </div>
+        </SDivRight>
       </SDiv>
     </SBody>
   );
 }
 
 const SDiv = styled.div`
-  margin: 0;
   @media (min-width: 600px) {
     float: left;
   }
 `;
 
+const SDivLeft = styled.div`
+  @media (min-width: 600px) {
+    width: 710px;
+  }
+`;
+
+const SDivRight = styled.div`
+  @media (min-width: 600px) {
+    width: 400px;
+    padding: 75px 0;
+  }
+`;
+
 const SBody = styled.div`
-  background-color: rgb(255, 255, 255);
+  background-color: #faffec;
+`;
+
+const SMain = styled.div`
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-decoration-line: underline;
+  text-decoration-color: greenyellow;
 `;

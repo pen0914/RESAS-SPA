@@ -10,7 +10,7 @@ export const HeaderArea = memo(() => {
 
 const SDiv = styled.div`
   color: white;
-  background-color: #11e9;
+  background-color: #a6c752;
 
   text-align: center;
   _hover {

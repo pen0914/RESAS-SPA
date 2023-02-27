@@ -49,11 +49,14 @@ const SFlex = styled.div`
   display: inline-flex;
   justify-content: start;
   margin: 5px;
-  box-shadow: 0 0 3px #000000;
-  background-color: #e5e;
+  box-shadow: 0 0 3px #333333;
+  background-color: #a6c752;
+  color: #ffffff;
   border-radius: 3px;
 `;
 
 const STitle = styled.div`
-  color: #119;
+  color: #147616;
+  font-family: "Hiragino Maru Gothic ProN";
+  font-weight: bold;
 `;
