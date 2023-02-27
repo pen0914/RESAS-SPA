@@ -9,11 +9,8 @@ export const HeaderArea = memo(() => {
 });
 
 const SDiv = styled.div`
-  color: white;
+  color: black;
   background-color: #a6c752;
-
+  font-weight: bold;
   text-align: center;
-  _hover {
-    cursor: ;
-  }
 `;

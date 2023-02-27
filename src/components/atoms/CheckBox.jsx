@@ -1,8 +1,10 @@
+import styled from "styled-components";
+
 export const CheckBox = (props) => {
   const { onClickValue, prefecture } = props;
   return (
     <div>
-      <input
+      <SInput
         type="checkbox"
         name="prefecture"
         onClick={() => onClickValue(prefecture)}
@@ -11,3 +13,7 @@ export const CheckBox = (props) => {
     </div>
   );
 };
+
+const SInput = styled.input`
+  cursor: pointer;
+`;

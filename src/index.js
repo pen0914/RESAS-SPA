@@ -4,12 +4,15 @@ import ReactDom from "react-dom";
 
 import App from "./App";
 import { GraphProvider } from "./providers/GraphProvider";
+import { PopulationProvider } from "./providers/PopulationProvider";
 
 ReactDom.render(
-  <GraphProvider>
-    <StrictMode>
-      <App />
-    </StrictMode>
-  </GraphProvider>,
+  <PopulationProvider>
+    <GraphProvider>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </GraphProvider>
+  </PopulationProvider>,
   document.getElementById("root")
 );

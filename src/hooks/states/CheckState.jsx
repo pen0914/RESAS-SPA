@@ -1,10 +1,12 @@
 import { GraphContext } from "../../providers/GraphProvider";
 import { SelectPopulation } from "../../hooks/axios/SelectPopulation";
 import { useCallback, useContext } from "react";
+import { PopulationContext } from "../../providers/PopulationProvider";
 
 export const CheckState = () => {
   const { graphData, setGraphData } = useContext(GraphContext);
-  const { getPopulationData, population } = SelectPopulation();
+  const { population } = useContext(PopulationContext);
+  const { getPopulationData } = SelectPopulation();
 
   const CheckFunction = useCallback(
     (prefecture) => {
@@ -21,6 +23,7 @@ export const CheckState = () => {
       else {
         //axiosで人口構成apiを取得
         getPopulationData(code);
+
         //graphDataに追加
         setGraphData([
           ...graphData,

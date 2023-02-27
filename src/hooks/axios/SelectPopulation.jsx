@@ -1,11 +1,10 @@
 /* eslint-disabled react-hooks/exhaustive-deps */
 import axios from "axios";
-import { useCallback, useState } from "react";
+import { useCallback, useContext } from "react";
+import { PopulationContext } from "../../providers/PopulationProvider";
 
 export const SelectPopulation = () => {
-  const [population, setPopulation] = useState([
-    { label: "0", data: { year: 0, value: 0 } }
-  ]);
+  const { setPopulation } = useContext(PopulationContext);
 
   const header = {
     "X-API-KEY": "aCDP2x9uUyivsfGuaMsvHcjfdFJdnpxET3jIHmxl"
@@ -15,7 +14,6 @@ export const SelectPopulation = () => {
 
   const getPopulationData = useCallback((code) => {
     const query = `?prefCode=${code}`;
-
     axios
       .get(endpoint + prefectures + query, {
         headers: header
@@ -30,8 +28,6 @@ export const SelectPopulation = () => {
   }, []);
 
   return {
-    getPopulationData,
-    population,
-    setPopulation
+    getPopulationData
   };
 };
