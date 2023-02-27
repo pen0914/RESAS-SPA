@@ -3,10 +3,13 @@ import React from "react";
 import ReactDom from "react-dom";
 
 import App from "./App";
+import { GraphProvider } from "./providers/GraphProvider";
 
 ReactDom.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <GraphProvider>
+    <StrictMode>
+      <App />
+    </StrictMode>
+  </GraphProvider>,
   document.getElementById("root")
 );

@@ -1,11 +1,12 @@
+import { memo } from "react";
 import styled from "styled-components";
-export const HeaderArea = () => {
+export const HeaderArea = memo(() => {
   return (
     <>
       <SDiv>人口構成マップ作成アプリ</SDiv>
     </>
   );
-};
+});
 
 const SDiv = styled.div`
   color: white;

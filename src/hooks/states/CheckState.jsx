@@ -1,6 +1,6 @@
 import { GraphContext } from "../../providers/GraphProvider";
 import { SelectPopulation } from "../../hooks/axios/SelectPopulation";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext } from "react";
 
 export const CheckState = () => {
   const { graphData, setGraphData } = useContext(GraphContext);

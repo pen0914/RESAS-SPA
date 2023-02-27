@@ -2,7 +2,6 @@ import "./styles.css";
 import styled from "styled-components";
 import React, { useEffect } from "react";
 
-import { GraphProvider } from "./providers/GraphProvider";
 import { CheckBoxArea } from "./components/organisms/CheckBoxArea";
 import { GraphArea } from "./components/organisms/GraphArea";
 import { HeaderArea } from "./components/organisms/HeaderArea";
@@ -13,24 +12,36 @@ export default function App() {
   const { getData, prefData } = AllData();
 
   useEffect(() => getData(), [getData]);
+
   return (
-    <GraphProvider>
+    <SBody>
       <HeaderArea />
 
       <SDiv>
-        <p>都道府県</p>
-        {prefData.map((p, index) => {
-          <CheckBoxArea prefData={p} index={index} />;
-        })}
+        <div>
+          <p>都道府県</p>
+          {prefData.map((p, index) => {
+            return <CheckBoxArea key={p.prefCode} prefData={p} index={index} />;
+          })}
+        </div>
       </SDiv>
       <SDiv>
-        <p>人口数</p>
-        <GraphArea />
+        <div>
+          <div>人口数</div>
+          <GraphArea />
+        </div>
       </SDiv>
-    </GraphProvider>
+    </SBody>
   );
 }
 
 const SDiv = styled.div`
-  /* text-align: center; */
+  margin: 0;
+  @media (min-width: 600px) {
+    float: left;
+  }
+`;
+
+const SBody = styled.div`
+  background-color: rgb(255, 255, 255);
 `;
